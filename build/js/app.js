@@ -14,17 +14,42 @@ exports.exampleModule = ExampleModule;
 var ExampleModule = require('./../js/scripts.js').exampleModule;
 
 
-$(document).ready(function() {
-  $("#dinoButton").click(function() {
-    var parInput = $(".paragraphs").val();
-    var wordsInput = $(".words").val();
 
-    $.get("http://dinoipsum.herokuapp.com/api/?format=html&" + "paragraphs=" + parInput + "&words=" + wordsInput).then(function(text){
-      $('#some-awesome-container').html(text);
-      console.log(text);
+$(document).ready(function() {
+  var obj;
+
+  $("#dinoButton").click(function() {
+    var manufacturer = $(".brand").val();
+
+    $.get("https://bikeindex.org:443/api/v3/search?&manufacturer=" + manufacturer + "&location=IP").then(function(response) {
+      // $('#some-awesome-container').text(response.bikes[1]);
+      obj = response;
+
+      for (i = 0 ; i <= 20 ; i++){
+        $("#some-awesome-container").append("<li>" + response.bikes[i].frame_model +"</li>");
+      };
+      console.log(obj.bikes.slice(4, 15));
     });
   });
 });
+
+
+
+
+
+// DINO IPSUM //
+// $(document).ready(function() {
+//   $("#dinoButton").click(function() {
+//     var key1 = "paragraphs";
+//     var val1 = $(".paragraphs").val();
+//     var wordsInput = $(".words").val();
+//
+//     $.get("http://dinoipsum.herokuapp.com/api/?format=html&"+ key1 + "=" + val1 + "&words=" + wordsInput).then(function(text){
+//       $('#some-awesome-container').html(text);
+//       console.log(text);
+//     });
+//   });
+// });
 
 // $(document).ready(function() {
 //   $("#dinoButton").click(function() {
