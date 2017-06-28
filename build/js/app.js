@@ -15,25 +15,38 @@ var ExampleModule = require('./../js/scripts.js').exampleModule;
 
 
 $(document).ready(function() {
-  var parInput = $(".paragraphs").val();
-  var wordsInput = $(".words").val();
-  // var parInput = 355;
-  // var wordsInput = 4;
+  $("#dinoButton").click(function() {
+    var parInput = $(".paragraphs").val();
+    var wordsInput = $(".words").val();
 
-    $("#dinoButton").click(function() {
-      var getDinos = $.get("http://dinoipsum.herokuapp.com/api/?format=html&" + "paragraphs=" + parInput + "&words=" + wordsInput),
-
-        fillContainer = function(html) {
-          $('#some-awesome-container').html(html);
-        }
-        getDinos.then(fillContainer);
-    })
+    $.get("http://dinoipsum.herokuapp.com/api/?format=html&" + "paragraphs=" + parInput + "&words=" + wordsInput).then(function(text){
+      $('#some-awesome-container').html(text);
+      console.log(text);
+    });
+  });
 });
 
+// $(document).ready(function() {
+//   $("#dinoButton").click(function() {
+//     var parInput = $(".paragraphs").val();
+//     var wordsInput = $(".words").val();
+//
+//       var getDinos = $.get("http://dinoipsum.herokuapp.com/api/?format=html&" + "paragraphs=" + parInput + "&words=" + wordsInput),
+//
+//       fillContainer = function(text) {
+//         $('#some-awesome-container').html(text);
+//           console.log(text);
+//         };
+//       // console.log(getDinos);
+//       getDinos.then(fillContainer);
+//
+//     })
+// });
 
-// var parInput = .val();
-// var wordsInput = 2;
-// var getDinos = $.get('http://dinoipsum.herokuapp.com/api/?format=html&paragraphs=3&words=15'),
+
+
+
+
 
 
 // weather thing API //
