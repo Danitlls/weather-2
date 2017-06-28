@@ -13,9 +13,12 @@ $(document).ready(function() {
       obj = response;
 
       for (i = 0 ; i <= 20 ; i++){
-        $("#some-awesome-container").append("<li>" + response.bikes[i].frame_model +"</li>");
+        $("#some-awesome-container").append("<li>" +
+         response.bikes[i].manufacturer_name + " <br> " +
+         response.bikes[i].frame_model + " <br> " + response.bikes[i].stolen_location + "<img src='" + response.bikes[i].large_img + "'></img>" + "</li>");
+  
       };
-      console.log(obj.bikes.slice(4, 15));
+      console.log(obj.bikes);
     });
   });
 });
