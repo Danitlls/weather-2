@@ -1,21 +1,79 @@
-img {
-  min-width: 200px;
-  max-width: 300px;
-  height: auto;
+body{
+  margin: 0;
 }
 
-.photo {
-  min-height: 200px;
-  min-width: 125px;
-  background-image: url("http://www.yachts-boat.com/oc-content/themes/osclasswizards/images/no_photo.gif");
-  background-size: cover;
-  z-index: 10;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 35px;
-}
 
 li {
   list-style: none;
   font-family: sans-serif;
+  width: 300px;
+  overflow: hidden;
+  margin: 20px;
+  img {
+    min-width: 200px;
+    max-width: 300px;
+    min-height: 200px;
+    max-height: 300px;
+    // background-image: image("http://www.yachts-boat.com/oc-content/themes/osclasswizards/images/no_photo.gif");
+    background-size: cover;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 35px;
+    z-index: 2000;
+  }
+}
+
+ul {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+header {
+  position: relative;
+  color: white;
+  height: 60px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  img.bike-logo {
+    position: absolute;
+    left: 20px;
+    width: 70px;
+    top: -5px;
+  }
+}
+
+section {
+  margin-top: 35px;
+  position: absolute;
+  right: 25px;
+  margin-bottom: 100px;
+}
+
+.title {
+  font-family: sans-serif;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 5px;
+  width: 250px;
+  border: 1px grey solid;
+}
+
+#dinoButton {
+  padding: 10px;
+  border-radius: 5px;
+  background-image:(linear-gradient(to bottom right, white, #dddddd));
+  border: 0;
+  width: 100px;
+}
+
+#some-awesome-container {
+  margin-top: 100px;
 }

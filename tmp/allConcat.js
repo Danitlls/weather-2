@@ -8,22 +8,27 @@ $(document).ready(function() {
   $("#dinoButton").click(function() {
     var manufacturer = $(".brand").val();
 
-    $.get(apiKey + manufacturer + "&location=IP").then(function(response) {
+    $.get(apiKey + manufacturer).then(function(response) {
       // $('#some-awesome-container').text(response.bikes[1]);
       obj = response;
-
-      for (i = 0 ; i <= 20 ; i++){
-        $("#some-awesome-container").append("<li>" +
-         response.bikes[i].manufacturer_name + " <br> " +
+      var image = "url('http://www.yachts-boat.com/oc-content/themes/osclasswizards/images/no_photo.gif')";
+      for (i = 0 ; i <= 23 ; i++){
+        $("#some-awesome-container").append("<li><strong>" +
+         response.bikes[i].manufacturer_name + " </strong><br> " +
          response.bikes[i].frame_model + " <br> " + response.bikes[i].stolen_location + "<img class='photo-" + i + "' src='" + response.bikes[i].large_img + "'></img>" + "</li>");
          if (response.bikes[i].large_img === null) {
-           $(".photo-"+ i).css("display", "none");
+           $(".photo-"+ i).css("background-image",  "url('http://www.yachts-boat.com/oc-content/themes/osclasswizards/images/no_photo.gif')");
+
           //  console.log(response.bikes[i].large_img)
          }
       };
       console.log(obj.bikes);
     });
   });
+  $("button").click(function(){
+    $("ul").empty();
+  });
+
 });
 
 
