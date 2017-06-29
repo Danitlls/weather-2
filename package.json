@@ -28,5 +28,13 @@
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
     "gulp-babel": "^6.1.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coreysnightout/bicycle-finder-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/coreysnightout/bicycle-finder-api/issues"
+  },
+  "homepage": "https://github.com/coreysnightout/bicycle-finder-api#readme"
 }

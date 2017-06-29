@@ -1,5 +1,5 @@
 var ExampleModule = require('./../js/scripts.js').exampleModule;
-
+var apiKey = require('./../.env').apiKey;
 
 
 $(document).ready(function() {
@@ -8,16 +8,18 @@ $(document).ready(function() {
   $("#dinoButton").click(function() {
     var manufacturer = $(".brand").val();
 
-    $.get("https://bikeindex.org:443/api/v3/search?&manufacturer=" + manufacturer + "&location=IP").then(function(response) {
+    $.get(apiKey + manufacturer + "&location=IP").then(function(response) {
       // $('#some-awesome-container').text(response.bikes[1]);
       obj = response;
-      var img = 'large_img';
 
       for (i = 0 ; i <= 20 ; i++){
         $("#some-awesome-container").append("<li>" +
          response.bikes[i].manufacturer_name + " <br> " +
-         response.bikes[i].frame_model + " <br> " + response.bikes[i].stolen_location + "<img src='" + response.bikes[i]. + img + "'></img>" + "</li>");
-
+         response.bikes[i].frame_model + " <br> " + response.bikes[i].stolen_location + "<img class='photo-" + i + "' src='" + response.bikes[i].large_img + "'></img>" + "</li>");
+         if (response.bikes[i].large_img === null) {
+           $(".photo-"+ i).css("display", "none");
+          //  console.log(response.bikes[i].large_img)
+         }
       };
       console.log(obj.bikes);
     });
